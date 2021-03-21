@@ -1,4 +1,4 @@
-export default function setResizingConstraint(
+module.exports = function setResizingConstraint(
     item,
     pinProperties = [false, false, false, false],
     sizeProperties = [false, false]
@@ -42,4 +42,4 @@ export default function setResizingConstraint(
         flagMap[5];
 
     item.sketchObject.setResizingConstraint(parseInt(result, 2));
-}
+};
