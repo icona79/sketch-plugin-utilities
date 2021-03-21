@@ -1,0 +1,21 @@
+# build artefacts
+*.sketchplugin
+*.sketchplugin.zip
+
+# npm
+node_modules
+.npm
+npm-debug.log
+
+# mac
+.DS_Store
+
+# WebStorm
+.idea
+
+# Visual Studio Code
+.vscode/
+*code-workspace
+
+# sketch
+# sketch-assets
