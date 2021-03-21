@@ -1,4 +1,14 @@
 {
     "name": "@icona79/tiny",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "description": "Sketch plugin development reusable functions ",
+    "license": "MIT",
+    "repository": "icona79/sketch-plugin-utilities",
+    "main": "index.js",
+    "keywords": [
+        "sketch",
+        "npm",
+        "package",
+        "icona79"
+    ]
 }
