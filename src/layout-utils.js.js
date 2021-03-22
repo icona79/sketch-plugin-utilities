@@ -53,6 +53,8 @@ function setResizingConstraint(
     item.sketchObject.setResizingConstraint(parseInt(result, 2));
 }
 
+exports.setResizingConstraint = setResizingConstraint;
+
 /**
  * Set the Smart Layout properties for the selected artefact
  *
@@ -66,8 +68,10 @@ function setResizingConstraint(
  *          5. VerticallyCenter
  *          6. BottomToTOp
  */
+
 function setSmartLayout(item, type) {
     let smartLayoutType = type;
+    let
     switch (smartLayoutType) {
         case "LeftToRight":
             return (item.smartLayout = SmartLayout.LeftToRight);
@@ -84,5 +88,4 @@ function setSmartLayout(item, type) {
     }
 }
 
-exports.setResizingConstraint = setResizingConstraint;
 exports.setSmartLayout = setSmartLayout;
