@@ -1,6 +1,6 @@
 {
     "name": "@icona79/sketch-plugin-utilities",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Sketch plugin development reusable functions ",
     "license": "MIT",
     "repository": "icona79/sketch-plugin-utilities",
