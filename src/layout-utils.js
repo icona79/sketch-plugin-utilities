@@ -70,6 +70,7 @@ exports.setResizingConstraint = setResizingConstraint;
  */
 
 function setSmartLayout(item, type) {
+    let SmartLayout = require("sketch").SmartLayout;
     let smartLayoutType = type;
     switch (smartLayoutType) {
         case "LeftToRight":
