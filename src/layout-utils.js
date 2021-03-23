@@ -1,10 +1,12 @@
+const SmartLayout = require("sketch").SmartLayout;
+
 /**
  * Set the Pinning Properties and Size properties for the selected artefact
  *
  * @param {item} text the selected artefact (it should be a group, text, shapepath, symbol).
  * @param {[pin Left, pin Right, pin Top, Pin bottom]} array boolean, set the
  *         pin properties for the selected artefact
- * @param {[fix size Horizontal, fix size Vertical]} array boolean, set the
+ * @param {[fix size horizontal, fix size vertical]} array boolean, set the
  *         fixed size
  * Note: in case of all the same direction parameters are true (which will cause a Sketch error)
  *       the pin properties wins over the size contraint properties
@@ -68,9 +70,7 @@ exports.setResizingConstraint = setResizingConstraint;
  *          5. VerticallyCenter
  *          6. BottomToTOp
  */
-
 function setSmartLayout(item, type) {
-    let SmartLayout = require("sketch").SmartLayout;
     let smartLayoutType = type;
     switch (smartLayoutType) {
         case "LeftToRight":
