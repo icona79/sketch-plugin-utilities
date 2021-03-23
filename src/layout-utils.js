@@ -71,7 +71,6 @@ exports.setResizingConstraint = setResizingConstraint;
 
 function setSmartLayout(item, type) {
     let smartLayoutType = type;
-    let
     switch (smartLayoutType) {
         case "LeftToRight":
             return (item.smartLayout = SmartLayout.LeftToRight);
