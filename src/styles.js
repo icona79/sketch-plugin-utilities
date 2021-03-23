@@ -1,36 +1,30 @@
 let SharedStyle = require("sketch/dom").SharedStyle;
 let document = sketch.getSelectedDocument();
 
-export let textStyles = document.sharedTextStyles;
-export default { textStyles: textStyles };
-
-export let arrayLayerStyleIDs = layerStyles.map(
-    (sharedstyle) => sharedstyle["id"]
-);
-export let arrayLayerStyleNames = layerStyles.map(
+let layerStyles = document.sharedLayerStyles;
+module.exports = layerStyles;
+let arrayLayerStyleIDs = layerStyles.map((sharedstyle) => sharedstyle["id"]);
+let arrayLayerStyleNames = layerStyles.map(
     (sharedstyle) => sharedstyle["name"]
 );
-export let arrayLayerStyleStyles = layerStyles.map(
+let arrayLayerStyleStyles = layerStyles.map(
     (sharedstyle) => sharedstyle["style"]
 );
+let layerStylesOrdered = [...document.sharedLayerStyles].sort(
+    (left, right) => left.name > right.name
+);
+let stylesString = JSON.stringify(layerStylesOrdered);
 
-export let layerStylesOrdered = [...document.sharedLayerStyles].sort(
-    (left, right) => left.name > right.name
-);
-export let arrayTextStyleIDs = textStyles.map(
-    (sharedstyle) => sharedstyle["id"]
-);
-export let arrayTextStyleNames = textStyles.map(
-    (sharedstyle) => sharedstyle["name"]
-);
-export let arrayTextStyleStyles = textStyles.map(
+let textStyles = document.sharedTextStyles;
+let arrayTextStyleIDs = textStyles.map((sharedstyle) => sharedstyle["id"]);
+let arrayTextStyleNames = textStyles.map((sharedstyle) => sharedstyle["name"]);
+let arrayTextStyleStyles = textStyles.map(
     (sharedstyle) => sharedstyle["style"]
 );
-export let textStylesOrdered = [...document.sharedTextStyles].sort(
+let textStylesOrdered = [...document.sharedTextStyles].sort(
     (left, right) => left.name > right.name
 );
-export let stylesString = JSON.stringify(layerStylesOrdered);
-export let textString = JSON.stringify(textStylesOrdered);
+let textString = JSON.stringify(textStylesOrdered);
 
 /**
  * Update the document layer styles
