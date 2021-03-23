@@ -1,36 +1,36 @@
-var SharedStyle = require("sketch/dom").SharedStyle;
-var document = sketch.getSelectedDocument();
+let SharedStyle = require("sketch/dom").SharedStyle;
+let document = sketch.getSelectedDocument();
 
-export var textStyles = document.sharedTextStyles;
+export let textStyles = document.sharedTextStyles;
 export default { textStyles: textStyles };
 
-export var arrayLayerStyleIDs = layerStyles.map(
+export let arrayLayerStyleIDs = layerStyles.map(
     (sharedstyle) => sharedstyle["id"]
 );
-export var arrayLayerStyleNames = layerStyles.map(
+export let arrayLayerStyleNames = layerStyles.map(
     (sharedstyle) => sharedstyle["name"]
 );
-export var arrayLayerStyleStyles = layerStyles.map(
+export let arrayLayerStyleStyles = layerStyles.map(
     (sharedstyle) => sharedstyle["style"]
 );
 
-export var layerStylesOrdered = [...document.sharedLayerStyles].sort(
+export let layerStylesOrdered = [...document.sharedLayerStyles].sort(
     (left, right) => left.name > right.name
 );
-export var arrayTextStyleIDs = textStyles.map(
+export let arrayTextStyleIDs = textStyles.map(
     (sharedstyle) => sharedstyle["id"]
 );
-export var arrayTextStyleNames = textStyles.map(
+export let arrayTextStyleNames = textStyles.map(
     (sharedstyle) => sharedstyle["name"]
 );
-export var arrayTextStyleStyles = textStyles.map(
+export let arrayTextStyleStyles = textStyles.map(
     (sharedstyle) => sharedstyle["style"]
 );
-export var textStylesOrdered = [...document.sharedTextStyles].sort(
+export let textStylesOrdered = [...document.sharedTextStyles].sort(
     (left, right) => left.name > right.name
 );
-export var stylesString = JSON.stringify(layerStylesOrdered);
-export var textString = JSON.stringify(textStylesOrdered);
+export let stylesString = JSON.stringify(layerStylesOrdered);
+export let textString = JSON.stringify(textStylesOrdered);
 
 /**
  * Update the document layer styles
@@ -159,7 +159,7 @@ function getTextStyleIDFromName(name) {
     return styleID;
 }
 
-function createNewTextStyle(item, styleName, apply = false, variants = false) {
+function createNewTextStyle(item, styleName, apply = false, letiants = false) {
     // let document = sketch.getSelectedDocument();
     try {
         if (arrayTextStyleNames.indexOf(styleName) === -1) {
@@ -175,7 +175,7 @@ function createNewTextStyle(item, styleName, apply = false, variants = false) {
                 item.sharedStyleId = newTextStyleID;
                 item.style = textStyles[localIndex].style;
             }
-            if (variants === true && states.length > 0) {
+            if (letiants === true && states.length > 0) {
                 styleName = styleName.replace(states[0], "");
                 for (let vIndex = 1; vIndex < states.length; vIndex++) {
                     styleName =
