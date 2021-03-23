@@ -1,8 +1,7 @@
 var SharedStyle = require("sketch/dom").SharedStyle;
 var document = sketch.getSelectedDocument();
 
-var textStyles = document.sharedTextStyles;
-exports.textStyles = textStyles;
+export var textStyles = document.sharedTextStyles;
 export var arrayLayerStyleIDs = layerStyles.map(
     (sharedstyle) => sharedstyle["id"]
 );
