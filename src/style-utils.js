@@ -1,30 +1,30 @@
-let SharedStyle = require("sketch/dom").SharedStyle;
-let document = sketch.getSelectedDocument();
+var sketch = require("sketch");
+var SharedStyle = require("sketch/dom").SharedStyle;
+var document = sketch.getSelectedDocument();
 
-let layerStyles = document.sharedLayerStyles;
-module.exports = layerStyles;
-let arrayLayerStyleIDs = layerStyles.map((sharedstyle) => sharedstyle["id"]);
-let arrayLayerStyleNames = layerStyles.map(
+var layerStyles = document.sharedLayerStyles;
+var arrayLayerStyleIDs = layerStyles.map((sharedstyle) => sharedstyle["id"]);
+var arrayLayerStyleNames = layerStyles.map(
     (sharedstyle) => sharedstyle["name"]
 );
-let arrayLayerStyleStyles = layerStyles.map(
+var arrayLayerStyleStyles = layerStyles.map(
     (sharedstyle) => sharedstyle["style"]
 );
-let layerStylesOrdered = [...document.sharedLayerStyles].sort(
+var layerStylesOrdered = [...document.sharedLayerStyles].sort(
     (left, right) => left.name > right.name
 );
-let stylesString = JSON.stringify(layerStylesOrdered);
+var stylesString = JSON.stringify(layerStylesOrdered);
 
-let textStyles = document.sharedTextStyles;
-let arrayTextStyleIDs = textStyles.map((sharedstyle) => sharedstyle["id"]);
-let arrayTextStyleNames = textStyles.map((sharedstyle) => sharedstyle["name"]);
-let arrayTextStyleStyles = textStyles.map(
+var textStyles = document.sharedTextStyles;
+var arrayTextStyleIDs = textStyles.map((sharedstyle) => sharedstyle["id"]);
+var arrayTextStyleNames = textStyles.map((sharedstyle) => sharedstyle["name"]);
+var arrayTextStyleStyles = textStyles.map(
     (sharedstyle) => sharedstyle["style"]
 );
-let textStylesOrdered = [...document.sharedTextStyles].sort(
+var textStylesOrdered = [...document.sharedTextStyles].sort(
     (left, right) => left.name > right.name
 );
-let textString = JSON.stringify(textStylesOrdered);
+var textString = JSON.stringify(textStylesOrdered);
 
 /**
  * Update the document layer styles
@@ -56,7 +56,6 @@ function updateLayerStyles() {
         orderedByName: layerStylesOrdered,
     };
 }
-exports.updateLayerStyles = updateLayerStyles;
 
 /**
  * Get the layer style name statrting from its ID
@@ -73,7 +72,6 @@ function getLayerStyleNameFromID(id) {
     }
     return styleName;
 }
-exports.getLayerStyleNameFromID = getLayerStyleNameFromID;
 
 /**
  * Get the layer style ID statrting from its name
@@ -90,7 +88,6 @@ function getLayerStyleIDFromName(name) {
     }
     return styleID;
 }
-exports.getLayerStyleIDFromName = getLayerStyleIDFromName;
 
 /**
  * Generate a new layer style from the selected item
@@ -154,7 +151,6 @@ function getTextStyleIDFromName(name) {
 }
 
 function createNewTextStyle(item, styleName, apply = false, letiants = false) {
-    // let document = sketch.getSelectedDocument();
     try {
         if (arrayTextStyleNames.indexOf(styleName) === -1) {
             let sharedStyle = textStyles.push({
@@ -204,3 +200,9 @@ function updateTextStyles() {
         (sharedstyle) => sharedstyle["style"]
     );
 }
+
+module.exports = {
+    updateLayerStyles: updateLayerStyles,
+    getLayerStyleNameFromID: getLayerStyleNameFromID,
+    getLayerStyleIDFromName: getLayerStyleIDFromName,
+};

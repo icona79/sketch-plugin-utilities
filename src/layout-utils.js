@@ -1,4 +1,4 @@
-const SmartLayout = require("sketch").SmartLayout;
+var SmartLayout = require("sketch").SmartLayout;
 
 /**
  * Set the Pinning Properties and Size properties for the selected artefact
@@ -55,8 +55,6 @@ function setResizingConstraint(
     item.sketchObject.setResizingConstraint(parseInt(result, 2));
 }
 
-exports.setResizingConstraint = setResizingConstraint;
-
 /**
  * Set the Smart Layout properties for the selected artefact
  *
@@ -88,4 +86,7 @@ function setSmartLayout(item, type) {
     }
 }
 
-exports.setSmartLayout = setSmartLayout;
+module.exports = {
+    setResizingConstraint: setResizingConstraint,
+    setSmartLayout: setSmartLayout,
+};
